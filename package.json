@@ -1,6 +1,6 @@
 {
   "name": "eu-fixer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WebExtension to fix DMA nonsense",
   "main": "index.js",
   "scripts": {
