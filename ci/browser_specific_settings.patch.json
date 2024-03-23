@@ -1,0 +1,12 @@
+[
+  {
+    "op": "add",
+    "path": "/browser_specific_settings",
+    "value": {
+      "gecko": {
+        "id": "firefox-eu-fixer@schlau.bi",
+        "strict_min_version": "42.0"
+      }
+    }
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "name": "EU Google Maps Links",
+  "description": "This extension re-enables links to Google Maps in EU regions",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.google.at/search*",
+        "https://*.google.be/search*",
+        "https://*.google.bg/search*",
+        "https://*.google.hr/search*",
+        "https://*.google.cy/search*",
+        "https://*.google.cz/search*",
+        "https://*.google.dk/search*",
+        "https://*.google.ee/search*",
+        "https://*.google.fi/search*",
+        "https://*.google.fr/search*",
+        "https://*.google.de/search*",
+        "https://*.google.gr/search*",
+        "https://*.google.hu/search*",
+        "https://*.google.ie/search*",
+        "https://*.google.it/search*",
+        "https://*.google.lv/search*",
+        "https://*.google.lt/search*",
+        "https://*.google.lu/search*",
+        "https://*.google.nl/search*",
+        "https://*.google.pl/search*",
+        "https://*.google.pt/search*",
+        "https://*.google.ro/search*",
+        "https://*.google.sk/search*",
+        "https://*.google.si/search*",
+        "https://*.google.es/search*",
+        "https://*.google.se/search*"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "expand_content.svg"
+      ],
+      "matches": [
+        "https://*.google.com/*",
+        "https://*.google.de/*"
+      ]
+    }
+  ]
+}
