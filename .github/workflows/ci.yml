@@ -35,7 +35,7 @@ jobs:
       - run: pnpm i web-ext -g
       - run: pip install jsonpatch
       - run: jsonpatch -i dist/manifest.json ci/browser_specific_settings.patch.json
-      - run: web-ext sign --use-submission-api -s dist -a .
+      - run: web-ext sign --use-submission-api --channel listed -s dist -a .
         env:
           WEB_EXT_API_KEY: ${{ secrets.FIREFOX_API_ISSUER }}
           WEB_EXT_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
