@@ -13,7 +13,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 21
-      - run: pnpm i
+      - uses: pnpm/action-setup@v3
+        with:
+          run_install: true
       - run: pnpm build
       - uses: actions/upload-artifact@v4
         with:
@@ -28,6 +30,7 @@ jobs:
         with:
           name: 'distribution'
           path: 'dist'
+      - uses: pnpm/action-setup@v3
       - run: pnpm i web-ext -g
       - run: pip install jsonpatch
       - run: jsonpatch dist/manifest.json ci/browser_specific_settings.patch.json
@@ -49,6 +52,7 @@ jobs:
         with:
           name: 'distribution'
           path: 'dist'
+      - uses: pnpm/action-setup@v3
       - run: pnpm i web-ext -g
       - run: web-ext build -s dist -n eu_fixer_chrome.zip -a .
       - uses: actions/upload-artifact@v4
