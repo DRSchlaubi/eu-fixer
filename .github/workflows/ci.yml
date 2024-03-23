@@ -78,4 +78,3 @@ jobs:
         with:
           keys: ${{ secrets.BPP_KEYS }}
           chrome-file: eu_fixer_chrome.zip
-          firefox-file: 'extension.xpi'
