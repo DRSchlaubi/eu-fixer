@@ -34,7 +34,7 @@ jobs:
       - uses: pnpm/action-setup@v3
       - run: pnpm i web-ext -g
       - run: pip install jsonpatch
-      - run: jsonpatch dist/manifest.json ci/browser_specific_settings.patch.json
+      - run: jsonpatch dist/manifest.json ci/browser_specific_settings.patch.json > dist/manifest.json
       - run: web-ext sign -s dist -a .
         env:
           WEB_EXT_API_KEY: ${{ secrets.FIREFOX_API_ISSUER }}
