@@ -4,7 +4,7 @@
     "path": "/browser_specific_settings",
     "value": {
       "gecko": {
-        "id": "eu-google-maps-links",
+        "id": "firefox-eu-fixer@schlau.bi",
         "strict_min_version": "48.0"
       }
     }
