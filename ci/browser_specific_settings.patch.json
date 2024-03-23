@@ -5,7 +5,7 @@
     "value": {
       "gecko": {
         "id": "firefox-eu-fixer@schlau.bi",
-        "strict_min_version": "42.0"
+        "strict_min_version": "48.0"
       }
     }
   }
