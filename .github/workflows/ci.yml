@@ -44,6 +44,12 @@ jobs:
         with:
           name: 'firefox'
           path: 'extension.xpi'
+      - uses: yayuyokitano/firefox-addon@v0.0.3-alpha
+        with:
+          api_key: ${{ secrets.FIREFOX_API_ISSUER }}
+          api_secret: ${{ secrets.FIREFOX_API_SECRET }}
+          guid: firefox-eu-fixer@schlau.bi
+          xpi_path: 'extension.xpi'
   build_chrome:
     name: Build Chrome extension
     runs-on: ubuntu-latest
@@ -57,25 +63,12 @@ jobs:
       - uses: pnpm/action-setup@v3
       - run: pnpm i web-ext -g
       - run: web-ext build -s dist -n eu_fixer_chrome.zip -a .
-      - uses: actions/upload-artifact@v4
+      - name: Upload to Chrome Web Store
+        uses: mobilefirstllc/cws-publish@latest
         with:
-          name: 'chrome'
-          path: 'eu_fixer_chrome.zip'
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    needs: [build_firefox, build_chrome]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          name: 'chrome'
-      - uses: actions/download-artifact@v4
-        with:
-          name: 'firefox'
-      - name: Browser Platform Publisher
-        uses: PlasmoHQ/bpp@v3.2.1
-        with:
-          keys: ${{ secrets.BPP_KEYS }}
-          chrome-file: eu_fixer_chrome.zip
-          firefox-file: 'extension.xpi'
+          action: 'upload'  # one of: upload, publish, testers
+          client_id: ${{ secrets.CHROME_CLIENT }}
+          client_secret: ${{ secrets.CHROME_SECRET }}
+          refresh_token: ${{ secrets.CHROME_TOKEN }}
+          extension_id: 'ibkbklcafplkbehibmbhgndpofkpbfae'
+          zip_file: 'eu_fixer_chrome.zip'
